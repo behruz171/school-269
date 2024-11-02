@@ -5,13 +5,18 @@ import AboutContent from "../../content/AboutContent.json";
 import MissionContent from "../../content/MissionContent.json";
 import ProductContent from "../../content/ProductContent.json";
 import ContactContent from "../../content/ContactContent.json";
+import 'swiper/css';
+import 'swiper/css/effect-cards';
+import "./style.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
 
+import { EffectCards } from 'swiper/modules';
 const Contact = lazy(() => import("../../components/ContactForm"));
 const MiddleBlock = lazy(() => import("../../components/MiddleBlock"));
 const Container = lazy(() => import("../../common/Container"));
 const ScrollToTop = lazy(() => import("../../common/ScrollToTop"));
 const ContentBlock = lazy(() => import("../../components/ContentBlock"));
-
 const Home = () => {
   return (
     <Container>
@@ -29,6 +34,8 @@ const Home = () => {
         content={MiddleBlockContent.text}
         button={MiddleBlockContent.button}
       />
+
+      
       <ContentBlock
         direction="left"
         title={AboutContent.title}
@@ -44,6 +51,25 @@ const Home = () => {
         icon="product-launch.svg"
         id="mission"
       />
+
+      <>
+        <Swiper
+          effect={'cards'}
+          grabCursor={true}
+          modules={[EffectCards]}
+          className="mySwiper"
+        >
+          <SwiperSlide><span><img src="https://via.placeholder.com/300x200" alt="" /></span></SwiperSlide>
+          <SwiperSlide><span><img src="https://via.placeholder.com/300x200" alt="" /></span></SwiperSlide>
+          <SwiperSlide><span><img src="https://via.placeholder.com/300x200" alt="" /></span></SwiperSlide>
+          <SwiperSlide><span><img src="https://via.placeholder.com/300x200" alt="" /></span></SwiperSlide>
+          <SwiperSlide><span><img src="https://via.placeholder.com/300x200" alt="" /></span></SwiperSlide>
+          <SwiperSlide><span><img src="https://via.placeholder.com/300x200" alt="" /></span></SwiperSlide>
+          <SwiperSlide><span><img src="https://via.placeholder.com/300x200" alt="" /></span></SwiperSlide>
+          <SwiperSlide><span><img src="https://via.placeholder.com/300x200" alt="" /></span></SwiperSlide>
+          <SwiperSlide><span><img src="https://via.placeholder.com/300x200" alt="" /></span></SwiperSlide>
+        </Swiper>
+      </>
       <ContentBlock
         direction="left"
         title={ProductContent.title}
@@ -56,6 +82,7 @@ const Home = () => {
         content={ContactContent.text}
         id="contact"
       />
+
     </Container>
   );
 };
